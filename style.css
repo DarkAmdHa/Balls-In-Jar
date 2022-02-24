@@ -1,0 +1,40 @@
+html, body {
+    margin: 0;
+  }
+  
+  html {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    height: 100%;
+  }
+  
+  body {
+    overflow: hidden;
+    height: inherit;
+    display: flex;
+  }
+  
+.urn{
+  background: linear-gradient(44deg, #a4f2ff, #c8f7ff);
+    width: 250px;
+    height: 300px;
+    border: 6px solid rgb(56, 56, 56);
+    border-bottom-left-radius: 15%;
+    border-bottom-right-radius: 15%;
+    margin: auto;
+    padding-right:2px;
+    border-top-color: white;
+    position: relative;
+}
+
+.ball{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #7e7e7e;
+  box-shadow:inset 3px -4px 8px rgba(255, 255, 255, 0.384), inset -3px 1px 4px rgba(0, 0, 0, 0.404), 0 0 1px #0000003b ;
+}
+
+.ball.uncolored{
+  border-color: black;
+}
