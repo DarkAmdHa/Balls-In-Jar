@@ -39,23 +39,27 @@ function random(min, max) {
      }
      ballsHighlighted = true;
 
-    let ballsToHighlight;
+    let ballsToHighlight,
+    className;
     if(isColor){
         ballsToHighlight = urnContainer.querySelectorAll(`.ball.${colorName}`);
+        className = 'highlighted'
     }else{
         ballsToHighlight = urnContainer.querySelectorAll(`.ball:not(.${colorName})`);
+        className = 'highlightedAll'
+
     }
 
     for (var i =0;i<ballsToHighlight.length; i++){
         console.log(ballsToHighlight[i])
-        ballsToHighlight[i].classList.toggle('highlighted');
+        ballsToHighlight[i].classList.toggle(`${className}`);
     }
     setTimeout(() => {
         for (var i=0;i<ballsToHighlight.length; i++){
-            ballsToHighlight[i].classList.toggle('highlighted');
+            ballsToHighlight[i].classList.toggle(`${className}`);
         }
         ballsHighlighted = false;
-    }, 5000);
+    }, 2000);
  }
  
 balls = [];
@@ -213,4 +217,19 @@ allBalls.forEach(ball =>{
     ball.style.background = `${colorToAdd.color}`;
     ball.classList.add(`${colorToAdd.color}`);
 
+})
+
+document.querySelector('#highlight-red').addEventListener('click', (e)=>{
+    e.preventDefault();
+    highlightBalls(true, 'red');
+});
+
+document.querySelector('#highlight-blue').addEventListener('click', (e)=>{
+    e.preventDefault();
+    highlightBalls(true, 'blue');
+});
+
+document.querySelector('#highlight-but-blue').addEventListener('click', (e)=>{
+    e.preventDefault();
+    highlightBalls(false, 'blue');
 })
