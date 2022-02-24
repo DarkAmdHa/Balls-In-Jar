@@ -48,8 +48,7 @@ function random(min, max) {
         }
     }, 5000);
  }
- balls = [];
- let size = 20;
+
 
 
 // let ball = new Ball(
@@ -83,11 +82,13 @@ function random(min, max) {
 //      true
 //   );
  
-
-let yPos = 0,
+balls = [];
+let size = 20,
+    yPos = 0,
     i=0,
     x=17,
-    y=278;
+    y=278,
+    lastX = 0;
 while(balls.length<100){
     if(yPos === 0){
         ball = new Ball(
@@ -103,7 +104,7 @@ while(balls.length<100){
     }
     balls.push(ball);
 }else if(yPos === 1 && y===278){
-    y-=size;
+    y-=size-6;
     x=2;
     ball = new Ball(
         x,
@@ -126,8 +127,8 @@ while(balls.length<100){
     if(x>=220){
         yPos +=1;
     }
-}else if(yPos === 2 && y===258){
-    y-=size;
+}else if(yPos === 2 && y===264){
+    y-=size-4;
     x=0;
     ball = new Ball(
         x,
@@ -138,11 +139,17 @@ while(balls.length<100){
     );
     balls.push(ball);
 }
-else if(yPos >= 2 && y!=258){
+else if(yPos >= 2 && y!=264){
         if(x>=220){
         yPos +=1;
-        y-=size+1;
-        x=0;
+        y-=size-6;
+        if(lastX === 0){
+            x=15;
+            lastX=1; 
+        }else{
+            x=0;
+            lastX=0;
+        }
 
     }else{
         x+=size+3;

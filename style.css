@@ -22,8 +22,9 @@ html, body {
     border-bottom-right-radius: 15%;
     margin: auto;
     padding-right:2px;
-    border-top-color: white;
+    border-top: none;
     position: relative;
+    box-shadow: 11px 11px 12px 2px rgb(0 0 0 / 5%);
 }
 
 .ball{
