@@ -34,6 +34,21 @@ html, body {
   border-radius: 50%;
   border: 1px solid #7e7e7e;
   box-shadow:inset 3px -4px 8px rgba(255, 255, 255, 0.384), inset -3px 1px 4px rgba(0, 0, 0, 0.404), 0 0 1px #0000003b ;
+  transition: border 0.5s ease;
+}
+
+.ball:nth-child(4n){
+  z-index: 100;
+}
+
+.ball:nth-child(2n){
+  z-index: 50;
+}
+
+
+.ball.highlighted{
+  border: 3px solid yellow;
+  z-index: 100;
 }
 
 .ball.uncolored{

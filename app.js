@@ -32,55 +32,31 @@ function random(min, max) {
       }
  }
 
+ let ballsHighlighted = false;
  const highlightBalls = function(isColor, colorName) {
+     if(ballsHighlighted){
+        return;
+     }
+     ballsHighlighted = true;
+
+    let ballsToHighlight;
     if(isColor){
-        const ballsToHighlight = urnContainer.querySelectorAll(`.ball.${colorName}`);
+        ballsToHighlight = urnContainer.querySelectorAll(`.ball.${colorName}`);
     }else{
-        const ballsToHighlight = urnContainer.querySelectorAll(`.ball:not(.${colorName})`);
+        ballsToHighlight = urnContainer.querySelectorAll(`.ball:not(.${colorName})`);
     }
 
-    for (ball in ballsToHighlight){
-        ball.classList.toggle('highlight');
+    for (var i =0;i<ballsToHighlight.length; i++){
+        console.log(ballsToHighlight[i])
+        ballsToHighlight[i].classList.toggle('highlighted');
     }
     setTimeout(() => {
-        for (ball in ballsToHighlight){
-            ball.classList.toggle('highlight');
+        for (var i=0;i<ballsToHighlight.length; i++){
+            ballsToHighlight[i].classList.toggle('highlighted');
         }
+        ballsHighlighted = false;
     }, 5000);
  }
-
-
-
-// let ball = new Ball(
-//     // ball position always drawn at least one ball width
-//     // away from the edge of the canvas, to avoid drawing errors
-//     15,
-//     280,
-//     '#333',
-//     'red',
-//     true
-//  );
-//  balls.push(ball);
-//      ball = new Ball(
-//      // ball position always drawn at least one ball width
-//      // away from the edge of the canvas, to avoid drawing errors
-//      3,
-//      266,
-//      '#333',
-//      'red',
-//      true
-//   );
- 
-//   balls.push(ball);
-//      ball = new Ball(
-//      // ball position always drawn at least one ball width
-//      // away from the edge of the canvas, to avoid drawing errors
-//      3,
-//      266,
-//      '#333',
-//      'red',
-//      true
-//   );
  
 balls = [];
 let size = 20,
@@ -142,7 +118,7 @@ while(balls.length<100){
 else if(yPos >= 2 && y!=264){
         if(x>=220){
         yPos +=1;
-        y-=size-6;
+        y-=size-4;
         if(lastX === 0){
             x=15;
             lastX=1; 
