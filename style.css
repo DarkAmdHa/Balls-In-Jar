@@ -1,19 +1,4 @@
-html, body {
-    margin: 0;
-  }
-  
-  html {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    height: 100%;
-  }
-  
-  body {
-    overflow: hidden;
-    height: inherit;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-  }
+
   
 .urn{
   background: linear-gradient(44deg, #a4f2ff, #c8f7ff);
@@ -23,7 +8,6 @@ html, body {
     border-bottom-left-radius: 15%;
     border-bottom-right-radius: 15%;
     margin: auto;
-    padding-right:2px;
     border-top: none;
     position: relative;
     box-shadow: 11px 11px 12px 2px rgb(0 0 0 / 5%);
@@ -59,4 +43,23 @@ html, body {
 
 .ball.uncolored{
   border-color: black;
+}
+
+.left-column{
+  position: relative;
+  left: -260px;
+  height: 100%;
+  bottom: 0;
+  text-align: right;
+}
+
+.row{
+  position: absolute;
+  width: 100%;
+}
+
+.ball{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
